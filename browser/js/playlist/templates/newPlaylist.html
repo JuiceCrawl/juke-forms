@@ -1,0 +1,23 @@
+<h3>{{title}}</h3>
+<div class="well">
+  <form  class="form-horizontal" name='playlistForm' ng-submit="create(name)">
+    <fieldset>
+      <legend>New Playlist</legend>
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Name</label>
+        <div class="col-xs-10">
+          <input name="playlistInput" ng-maxlength='16' ng-model='name' class="form-control" type="text" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-10 col-xs-offset-2">
+          <button ng-disabled="playlistForm.$invalid" type="submit" class="btn btn-success">Create Playlist</button>
+        </div>
+        <span ng-show="playlistForm.playlistInput.$dirty && playlistForm.$invalid">Too long</span>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<!-- 
+ng-submit="create(name); playlistForm.$setPristine()" -->
