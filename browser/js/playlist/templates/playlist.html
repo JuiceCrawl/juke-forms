@@ -29,7 +29,10 @@
         </td>
         <td>{{ song.name }}</td>
         <td><span ng-repeat="artist in song.artists">{{ artist.name }}{{ $last ? '' : ', ' }}</span></td>
-        <td>{{ song.genres.join(', ') }}</td>
+        <td>{{ song.genres.join(', ') }} </td>
+        <td><button ng-click="remove(playlist.id, song)" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button></td>
       </tr>
     </tbody>
   </table>

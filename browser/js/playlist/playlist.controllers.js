@@ -31,6 +31,14 @@ juke.controller('oneplaylist', function($scope, thePlaylist, theSongs, SongFacto
       });
     };
 
+    $scope.remove = function(playlistid, song){ 
+      console.log("dont question the hi")
+      SongFactory.removeFromPlaylist(playlistid, song)
+      .then(function(songObj) {
+         var index = $scope.playlist.songs.indexOf(songObj);
+         scope.playlist.songs.splice(index, 1);
+      });
+    };
 
 
 

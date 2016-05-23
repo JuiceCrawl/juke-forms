@@ -7,13 +7,16 @@
         <label class="col-xs-2 control-label">Name</label>
         <div class="col-xs-10">
           <input name="playlistInput" ng-maxlength='16' ng-model='name' class="form-control" type="text" required>
+          <div ng-messages="playlistForm.$error" role="alert">
+          <div ng-message="required">Please enter a value for this field.</div>
+          <div ng-message="maxlength">This field can be at most 16 characters long.</div>
+        </div>
         </div>
       </div>
       <div class="form-group">
         <div class="col-xs-10 col-xs-offset-2">
-          <button ng-disabled="playlistForm.$invalid" type="submit" class="btn btn-success">Create Playlist</button>
+          <button ng-disabled="playlistForm.$invalid && playlistForm.playlistInput.$dirty" type="submit" class="btn btn-success">Create Playlist</button>
         </div>
-        <span ng-show="playlistForm.playlistInput.$dirty && playlistForm.$invalid">Too long</span>
       </div>
     </fieldset>
   </form>

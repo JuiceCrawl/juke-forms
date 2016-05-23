@@ -1,6 +1,6 @@
 'use strict';
 
-var juke = angular.module('juke', ['ui.router']);
+var juke = angular.module('juke', ['ngMessages', 'ui.router']);
 
 juke.run(function ($rootScope) {
   $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {

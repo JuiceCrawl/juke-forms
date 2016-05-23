@@ -29,11 +29,20 @@ juke.factory('SongFactory', function ($http) {
       });
   };
 
-
+  function removeFromPlaylist (playlistid, song){
+    console.log("song", song)
+    var songId = song.id
+    return $http.delete('api/playlists/'+playlistid+'/songs/'+songId)
+    .then(function(deletedsong){
+      console.log("delted", deletedsong, song);
+      return(song);
+    });
+  }
   return {
     convert: convert,
     getAllSongs : getAllSongs,
-    addToPlaylist : addToPlaylist
+    addToPlaylist : addToPlaylist,
+    removeFromPlaylist: removeFromPlaylist
   };
 
 });
