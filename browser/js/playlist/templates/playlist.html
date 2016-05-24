@@ -20,6 +20,7 @@
         <th>Genres</th>
       </tr>
     </thead>
+    <!-- <tbody ui-sortable="sortableOptions" ng-model="playlist.songs"> -->
     <tbody>
       <tr ng-repeat="song in playlist.songs" ng-class="{active: song === getCurrentSong() }">
         <td>

@@ -28,12 +28,14 @@ juke.factory('PlayerFactory', function ($rootScope) {
   };
 
   player.start = function (song, list) {
+
     player.pause();
     audio.src = song.audioUrl;
     audio.load();
     currentSong = song;
     currentList = list;
     player.resume();
+    console.log("i am playing", audio);
   };
 
   player.isPlaying = function () {

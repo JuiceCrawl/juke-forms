@@ -12,7 +12,10 @@ juke.factory('SongFactory', function ($http) {
   function getAllSongs(){
     return $http.get('api/songs')
     .then(function(songs){
-      return songs.data;
+      songs = songs.data.map(function(song){
+        return convert(song);
+      });
+      return songs;
     })
     .then(null,function(err){
       console.error(err);    
@@ -25,7 +28,9 @@ juke.factory('SongFactory', function ($http) {
       return $http.post('api/playlists/'+playlistid+'/songs/',
        {song: song})
       .then(function(response){
-        return response.data;
+        var song = response.data
+        convert(song);
+        return song;
       });
   };
 
